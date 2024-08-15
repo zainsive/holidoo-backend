@@ -1,6 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
+import cors from "cors";
+import morgan from "morgan";
 
 export class Server {
   private app: express.Application;
@@ -10,25 +12,19 @@ export class Server {
     this.app = express();
 
     // config
-    this.app.use(bodyParser.urlencoded({ extended: false }));
+    this.app.use(bodyParser.urlencoded({ extended: true }));
     this.app.use(bodyParser.json());
+    this.app.use(cors());
+    this.app.use(morgan("short"));
 
     // middlewares
     this.setupEnv();
-    this.setCors();
     this.setupRoutes();
   }
 
   init() {
     const port = process.env.PORT ? Number(process.env.PORT) : 3000;
     this.app.listen(port, () => console.log(`>>> Server started at [${port}]`));
-  }
-
-  private setCors() {
-    this.app.use((req: express.Request, res: express.Response, next: any) => {
-      res.header("Access-Control-Allow-Origin", "*");
-      next();
-    });
   }
 
   private setupRoutes() {
