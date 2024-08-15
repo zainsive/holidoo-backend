@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 
 export class Server {
   private app: express.Application;
-  private port: number = 3000;
 
   constructor() {
     // server
@@ -13,7 +12,6 @@ export class Server {
     // config
     this.app.use(bodyParser.urlencoded({ extended: false }));
     this.app.use(bodyParser.json());
-    this.port = Number(process.env.PORT);
 
     // middlewares
     this.setupEnv();
@@ -22,9 +20,8 @@ export class Server {
   }
 
   init() {
-    this.app.listen(this.port, () =>
-      console.log(`>>> Server started at [${this.port}]`)
-    );
+    const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+    this.app.listen(port, () => console.log(`>>> Server started at [${port}]`));
   }
 
   private setCors() {
