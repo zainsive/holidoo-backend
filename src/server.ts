@@ -3,10 +3,11 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
-import client from "../config/redis-client";
+import client from "./config/redis-client";
 import { errorHandler } from "./error/handler";
+import { moduleRoutes } from "./routes";
 
-export class Server {
+class Server {
   private app: express.Application;
 
   constructor() {
@@ -20,6 +21,7 @@ export class Server {
       cors(),
       morgan("short"),
       errorHandler,
+      ...moduleRoutes,
     );
 
     // middlewares
@@ -27,7 +29,7 @@ export class Server {
     this.setupRoutes();
 
     // inits
-    this.initCacheClient();
+    // this.initCacheClient();
   }
 
   init() {
@@ -53,3 +55,5 @@ export class Server {
     client.connect();
   }
 }
+
+export const server = new Server();

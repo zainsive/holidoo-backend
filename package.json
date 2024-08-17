@@ -25,6 +25,7 @@
     "@types/morgan": "^1.9.9",
     "eslint": "^9.9.0",
     "globals": "^15.9.0",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.1.0"
   },
@@ -35,6 +36,8 @@
     "express": "^4.19.2",
     "morgan": "^1.10.0",
     "redis": "^4.7.0",
-    "winston": "^3.14.2"
+    "ts-node": "^10.9.2",
+    "winston": "^3.14.2",
+    "zod": "^3.23.8"
   }
 }
