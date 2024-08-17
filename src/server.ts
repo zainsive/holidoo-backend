@@ -5,9 +5,10 @@ import cors from "cors";
 import morgan from "morgan";
 import { errorHandler } from "./error/handler";
 import { moduleRoutes } from "./routes";
+import http from "http";
 
-class Server {
-  private app: express.Application;
+export class Server {
+  app: express.Application;
 
   constructor() {
     // server

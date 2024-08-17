@@ -30,5 +30,5 @@ async function getCountries() {
   const url = `${process.env.CALENDRIFIC_BASE_URL}/countries?api_key=${process.env.CALENDRIFIC_API_KEY}`;
 
   const res = await axios.get(url);
-  return res.data.response;
+  return res.data.response.countries;
 }

@@ -36,4 +36,4 @@ const moduleRoutes = modules.map((modl) => {
   }
 });
 
-export { moduleRoutes };
+export { moduleRoutes, router as MasterRouter };
