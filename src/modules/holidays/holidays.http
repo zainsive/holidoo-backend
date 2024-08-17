@@ -1,5 +1,5 @@
 ###
-GET http://localhost:5000/holidays?country=PK&year=2001 HTTP/1.1
+GET http://localhost:5000/holidays?country=US&year=2020 HTTP/1.1
 content-type: application/json
 
 {

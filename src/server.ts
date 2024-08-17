@@ -3,7 +3,6 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
-import client from "./config/redis-client";
 import { errorHandler } from "./error/handler";
 import { moduleRoutes } from "./routes";
 
@@ -45,14 +44,6 @@ class Server {
 
   private setupEnv() {
     dotenv.config({ path: `env/${process.env.NODE_ENV}.env` });
-  }
-
-  private initCacheClient() {
-    client.on("connect", () => console.log("Cache is connecting"));
-    client.on("ready", () => console.log("Cache is ready"));
-    client.on("end", () => console.log("Cache disconnected"));
-    client.on("error", (e) => console.log(e));
-    client.connect();
   }
 }
 
