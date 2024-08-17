@@ -1,8 +1,8 @@
 {
   "configurations": [
     {
-      "command": "npm run dev",
-      "name": "Run npm run dev",
+      "command": "npm run serve",
+      "name": "Run npm run serve",
       "request": "launch",
       "type": "node-terminal"
     }

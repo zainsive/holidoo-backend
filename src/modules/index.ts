@@ -1,4 +1,4 @@
-import { handle } from "../../handle";
+import { handle } from "../handle";
 import { ValidationSource } from "../constants";
 import { GetCountriesHandler } from "./countries";
 import { GetHolidaysHandler, GetHolidayApiQuerysSchema } from "./holidays";
